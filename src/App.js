@@ -20,6 +20,11 @@ const App = () => {
         <div className="flex justify-center">
           <ConnectButton />
         </div>
+        <div className="text-center">
+          <p className=" text-[24px] md:text-[30px] font-bold text-white">
+            Choose
+          </p>
+        </div>
         <div className="flex justify-center gap-10">
           <div>
             <img
@@ -49,7 +54,11 @@ const App = () => {
             // onClick={handleClick}
             className="text-white w-[350px] md:w-[455px] h-[48px] bg-customBorder border-2 border-customButtonStroke font-bold hover:bg-blue-900 rounded-[32px]"
           >
-            Bet {selectedName && `on ${selectedName.charAt(0).toUpperCase() + selectedName.slice(1)}`}
+            Bet{" "}
+            {selectedName &&
+              `on ${
+                selectedName.charAt(0).toUpperCase() + selectedName.slice(1)
+              }`}
           </button>
         </div>
       </div>
