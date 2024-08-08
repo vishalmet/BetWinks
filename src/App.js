@@ -43,18 +43,18 @@ const App = () => {
           <div>
             <img
               className={`h-[250px] rounded w-auto hover:border-4 border-blue-500 hover:scale-105 transition-transform duration-150 cursor-pointer ${
-                selectedImage === "kamala"
+                selectedImage === "Kamala Harris"
                   ? "border-4 border-blue-500 transition-transform duration-150 scale-105"
                   : ""
               }`}
               src={Kamala}
-              onClick={() => handleImageClick("Kamala Harris ")}
+              onClick={() => handleImageClick("Kamala Harris")}
             />
           </div>
           <div>
             <img
               className={`h-[250px] rounded w-auto hover:border-4 border-blue-500 hover:scale-105 transition-transform duration-150 cursor-pointer ${
-                selectedImage === "trump"
+                selectedImage === "Donald Trump"
                   ? "border-4 border-blue-500 transition-transform duration-150 scale-105"
                   : ""
               }`}
