@@ -4,54 +4,36 @@ import Web3 from "web3";
 import { ethers } from "ethers";
 
 import abi from "./abi.json";
-
-
-
+const contract_address = "0x9049a45b53a2e0Ef61CeA88a3EE92A6c37769fd3";
 
 const isBrowser = () => typeof window !== "undefined";
+const { ethereum } = isBrowser();
 
-const {ethereum } = isBrowser();
-
-
-if (ethereum){
-    isBrowser().web3 = new Web3(ethereum);
-    isBrowser().web3 = new Web3(isBrowser().web3.currentProvider);
+if (ethereum) {
+  isBrowser().web3 = new Web3(ethereum); 
+  isBrowser().web3 = new Web3(isBrowser().web3.currentProvider);
 }
 
 
-const contract_address = "0x284DAFC430a7AA660925fAf018918f3Ecd216CB8";
 
-
-export const Mint = async (address,amount) => {
-console.log("addre",address);
-
-console.log("am",amount);
-
-    // provider
-    const provider = window.ethereum != null ? new ethers.providers.Web3Provider(window.ethereum) : ethers.providers.getDefaultProvider();
-console.log("provider",provider)
-
-    //signer
-
-    const signer = provider.getSigner();
-
-console.log("signer",signer)
-    // contract instance
-const val = "0.0000001"
-console.log("val",val);
+export const PLACEBET = async ({ candidate }) => {
     try {
-        console.log("fuck yeah");
-        const tx = await signer.sendTransaction({
-            to: address,
-            value: ethers.utils.parseEther(val),
-          });
-    
-          console.log("tx",tx);
-          await tx.wait();
+      console.log('Candidate:', candidate); // Add this line
+      const provider =
+        window.ethereum != null
+          ? new ethers.providers.Web3Provider(window.ethereum)
+          : ethers.providers.getDefaultProvider();
+  
+      const signer = provider.getSigner();
+      const Role = new ethers.Contract(contract_address, abi, signer);
+      const tokenId = await Role.placeBet(candidate);
+      alert('bet placed');
+      return tokenId;
     } catch (error) {
-        console.log("fuck it");
+      console.error('Error placing bet:', error);
     }
+  };
+  
 
 
 
-}

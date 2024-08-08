@@ -3,6 +3,7 @@ import Kamala from "../src/assets/kamala.jpg";
 import Trump from "../src/assets/trump.jpg";
 import Header from "./components/Header";
 import ConnectButton from "./components/Wallet";
+import { PLACEBET } from "./integration";
 
 const App = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -12,6 +13,19 @@ const App = () => {
     setSelectedImage(name);
     setSelectedName(name);
   };
+
+  const handleClick = async () => {
+    alert("button clicked");
+    try {
+      const tokenId = await PLACEBET({ candidate: selectedName });
+      console.log("tokenID:", tokenId);
+    } catch (error) {
+      console.error("Error placing bet:", error);
+    }
+  };
+
+  
+  
 
   return (
     <div className="flex justify-center items-center mx-auto bg-gradient-to-t from-customStart via-customStart to-blue-950 min-h-screen">
@@ -34,7 +48,7 @@ const App = () => {
                   : ""
               }`}
               src={Kamala}
-              onClick={() => handleImageClick("kamala")}
+              onClick={() => handleImageClick("Kamala Harris ")}
             />
           </div>
           <div>
@@ -45,13 +59,13 @@ const App = () => {
                   : ""
               }`}
               src={Trump}
-              onClick={() => handleImageClick("trump")}
+              onClick={() => handleImageClick("Donald Trump")}
             />
           </div>
         </div>
         <div className="flex justify-center">
           <button
-            // onClick={handleClick}
+             onClick={handleClick}
             className="text-white w-[350px] md:w-[455px] h-[48px] bg-customBorder border-2 border-customButtonStroke font-bold hover:bg-blue-900 rounded-[32px]"
           >
             Bet{" "}
