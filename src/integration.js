@@ -5,6 +5,7 @@ import { ethers } from "ethers";
 
 import abi from "./abi.json";
 const contract_address = "0x9049a45b53a2e0Ef61CeA88a3EE92A6c37769fd3";
+const cost = 0.0001;
 
 const isBrowser = () => typeof window !== "undefined";
 const { ethereum } = isBrowser();
@@ -26,7 +27,7 @@ export const PLACEBET = async ({ candidate }) => {
   
       const signer = provider.getSigner();
       const Role = new ethers.Contract(contract_address, abi, signer);
-      const tokenId = await Role.placeBet(candidate);
+      const tokenId = await Role.placeBet(candidate, { value:cost });
       alert('bet placed');
       return tokenId;
     } catch (error) {
