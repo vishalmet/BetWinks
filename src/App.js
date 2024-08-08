@@ -42,7 +42,7 @@ const App = () => {
         <div className="flex justify-center gap-10">
           <div>
             <img
-              className={`h-[250px] rounded w-auto hover:border-4 border-blue-500 hover:scale-105 transition-transform duration-150 cursor-pointer ${
+              className={` h-[180px] md:h-[250px] rounded w-auto hover:border-4 border-blue-500 hover:scale-105 transition-transform duration-150 cursor-pointer ${
                 selectedImage === "Kamala Harris"
                   ? "border-4 border-blue-500 transition-transform duration-150 scale-105"
                   : ""
@@ -53,7 +53,7 @@ const App = () => {
           </div>
           <div>
             <img
-              className={`h-[250px] rounded w-auto hover:border-4 border-blue-500 hover:scale-105 transition-transform duration-150 cursor-pointer ${
+              className={` h-[180px] md:h-[250px] rounded w-auto hover:border-4 border-blue-500 hover:scale-105 transition-transform duration-150 cursor-pointer ${
                 selectedImage === "Donald Trump"
                   ? "border-4 border-blue-500 transition-transform duration-150 scale-105"
                   : ""
