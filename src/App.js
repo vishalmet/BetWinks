@@ -15,7 +15,6 @@ const App = () => {
   };
 
   const handleClick = async () => {
-    alert("button clicked");
     try {
       const tokenId = await PLACEBET({ candidate: selectedName });
       console.log("tokenID:", tokenId);

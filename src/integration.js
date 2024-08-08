@@ -21,7 +21,7 @@ if (ethereum) {
 
 export const PLACEBET = async ({ candidate }) => {
     try {
-      console.log('Candidate:', candidate); // Add this line
+      // console.log('Candidate:', candidate); 
       const provider =
         window.ethereum != null
           ? new ethers.providers.Web3Provider(window.ethereum)
@@ -30,7 +30,6 @@ export const PLACEBET = async ({ candidate }) => {
       const signer = provider.getSigner();
       const Role = new ethers.Contract(contract_address, abi, signer);
       const tokenId = await Role.placeBet(candidate, { value:_cost });
-      alert('bet placed');
       return tokenId;
     } catch (error) {
       console.error('Error placing bet:', error);
