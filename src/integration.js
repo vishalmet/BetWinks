@@ -4,7 +4,7 @@ import Web3 from "web3";
 import { ethers } from "ethers";
 
 import abi from "./abi.json";
-const contract_address = "0x9049a45b53a2e0Ef61CeA88a3EE92A6c37769fd3";
+const contract_address = "0x8FB0ECe837F25d61881BAAC0ed2Afcd27e530e9f";
 const cost = "0.0001";
 const _cost = ethers.utils.parseEther(cost).toString(); // Ensure cost is in wei
       

@@ -42,23 +42,23 @@ const App = () => {
           <div>
             <img
               className={` h-[180px] md:h-[250px] rounded w-auto hover:border-4 border-blue-500 hover:scale-105 transition-transform duration-150 cursor-pointer ${
-                selectedImage === "Kamala Harris"
+                selectedImage === "kamala"
                   ? "border-4 border-blue-500 transition-transform duration-150 scale-105"
                   : ""
               }`}
               src={Kamala}
-              onClick={() => handleImageClick("Kamala Harris")}
+              onClick={() => handleImageClick("kamala")}
             />
           </div>
           <div>
             <img
               className={` h-[180px] md:h-[250px] rounded w-auto hover:border-4 border-blue-500 hover:scale-105 transition-transform duration-150 cursor-pointer ${
-                selectedImage === "Donald Trump"
+                selectedImage === "trump"
                   ? "border-4 border-blue-500 transition-transform duration-150 scale-105"
                   : ""
               }`}
               src={Trump}
-              onClick={() => handleImageClick("Donald Trump")}
+              onClick={() => handleImageClick("trump")}
             />
           </div>
         </div>
